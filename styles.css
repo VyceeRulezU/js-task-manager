@@ -1,0 +1,367 @@
+@import url('fonts.css');
+@import url('tokens.css');
+
+:root {
+    --font-family: 'MADE TOMMY', system-ui, -apple-system, sans-serif;
+    --font-accent: 'Taprom', system-ui;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    caret-color: transparent;
+}
+
+input,
+textarea,
+select,
+[contenteditable="true"] {
+    caret-color: auto;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-white-0);
+    color: var(--text-strong-950);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.body_wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+} 
+
+.button {
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-family: inherit;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    background-color: var(--state-faded-dark);
+    color: var(--text-white-0);
+}
+
+.button:hover {
+    opacity: 0.9;
+}
+
+.inactive-btn{
+    background-color: var(--state-faded-light);
+    color: var(--text-soft-400);
+    cursor: not-allowed;
+}
+
+#counterDecrementBtn,
+#counterIncrementBtn{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.task_manager{
+    width: 74rem;
+    height: 40rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1.5rem;
+    border: solid 1px var(--stroke-sub-300);
+    overflow: hidden;
+}
+
+.title_container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 1.5rem;
+    border-bottom: solid 1px var(--stroke-sub-300);
+}
+
+.title_container h1{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.task_wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    /* align-items: center; */
+}
+
+.tab{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-bottom: solid 1px var(--stroke-sub-300);
+}
+
+.tablink{
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    color: var(--text-soft-400);
+    font-weight: 300;
+    cursor: pointer;
+    transition: color 0.5ms;
+    margin-bottom: -1px;
+}
+
+.is-active{
+    color: var(--text-strong-950);
+    border-bottom: solid 1px var(--bg-strong-950);
+}
+
+.tablink:hover{
+    color: var(--text-sub-600);
+}
+
+.task_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tab_content{
+    width: 100%;
+    display: none; 
+    flex-direction: column;
+    row-gap: 2rem;
+    padding: 1rem 0;
+}
+
+.content-active {
+  display: flex; 
+}
+
+.option_wrapper{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.input_overlay,
+.result_overlay,
+.counter_overlay{
+    width: 100%;
+    position: fixed;
+    inset: 0;
+    background: rgba(23, 27, 52, 0.60);
+    display: none;
+    flex-direction: column;
+    row-gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: opacity 0.3s ease;
+}
+
+
+.input_container,
+.result_container,
+.counter_container{
+    display: flex;
+    width: 40.1875rem;
+    height: 21.4375rem;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    background-color: var(--bg-white-0);
+    border-radius: 1.5rem;
+    transform: scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    overflow: hidden;
+}
+
+
+input[type="radio"]:checked{
+   accent-color: var(--state-information-light);
+}
+
+.radio_group label{
+    font-weight: 300;
+    color: var(--text-sub-600);
+}
+
+.radio_group label:hover{
+    color: var(--text-sub-400);
+}
+
+.input_header{
+    width: 100%;
+    display: flex;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid 1px var(--stroke-sub-300);
+}
+
+.input_header p{
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.close_btn{
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--text-sub-600);
+    cursor: pointer;
+}
+
+
+.input_form_body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 2rem;
+}
+
+.inputContainer{
+    display: flex;
+    width: 20rem;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.2rem;
+    border-radius: 1rem;
+    border: solid 1px var(--stroke-sub-300);
+    color: var(--text-soft-400);
+}
+
+.inputContainer:hover{
+    border-color: var(--state-verified-light);
+}
+
+.inputContainer:focus{
+    border-color: var(--state-information-lighter);
+}
+
+.tab_content p{
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--text-sub-600);
+}
+
+.radio_group{
+    display: flex;
+    flex-direction: row;
+    column-gap: 1rem;
+    align-items: center;
+}
+
+.radio_group input{
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.result_body{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 1rem;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+.counter_text{
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--text-strong-950);
+}
+
+
+.result_body p{
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--text-sub-600);
+}
+
+.close_btn:hover{
+    color: var(--text-sub-400);
+}
+
+.inputContainer:focus-visible{
+    outline: none;
+}
+
+.tab_content.content-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+.tab_content {
+    display: none; /* This rule hides all tab content by default */
+}
+
+.tab_content.content-active {
+    display: flex; /* This rule ensures the active tab content is displayed using flexbox. */
+}
+
+
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .actions button, .actions a {
+        width: 100%;
+        text-align: center;
+    }
+
+    header {
+        padding: 1rem;
+    }
+
+    main {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .logo {
+        width: 8rem;
+    }
+}
+
+

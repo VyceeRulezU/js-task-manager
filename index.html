@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net" rel="stylesheet"/>
+
+</head>
+
+<body>
+    
+    <div class="body_wrapper">
+
+        <div class="task_manager">
+
+            <div class="title_container">
+                <h1>Task Manager</h1>
+            </div>
+
+            <div class="task_wrapper">
+
+                <div class="tab">
+
+                    <div class="tablink is-active" data-tab="phase_1">
+                        <p>Section 1</p>
+                    </div>
+
+                    <div class="tablink" data-tab="phase_2">
+                        <p>Section 2</p>
+                    </div>
+
+                    <div class="tablink" data-tab="phase_3">
+                        <p>Section 3</p>
+                    </div>
+
+                    <div class="tablink" data-tab="phase_4">
+                        <p>Section 4</p>
+                    </div>
+
+                    <div class="tablink" data-tab="phase_5">
+                        <p>Section 5</p>
+                    </div>
+
+                </div>
+
+                <div class="task_container">
+
+                    <form class="tab_content content-active" id="phase_1">
+                        
+                        <p>Variable, String and Conditionals</p>
+
+                        <div class="option_wrapper">
+
+                            <div class="radio_group">
+                                <input type="radio" id="ageChecker" name="task" value="ageChecker"> 
+                                <label for="ageChecker">Age Category Checker</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="passwordChecker" name="task" value="passwordChecker"> 
+                                <label for="passwordChecker">Simple Password Strength Checker</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="userNameFormatter" name="task" value="userNameFormatter"> 
+                                <label for="userNameFormatter">Username Formatter</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="tempConverter" name="task" value="tempConverter"> 
+                                <label for="tempConverter">Temperature Converter</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="gradeCalculator" name="task" value="gradeCalculator"> 
+                                <label for="gradeCalculator">Basic Grade Calculator </label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="discountCalculator" name="task" value="discountCalculator"> 
+                                <label for="discountCalculator">Simple Discount Calculator </label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="messageGenerator" name="task" value="messageGenerator"> 
+                                <label for="messageGenerator">Greeting Message Generator </label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="loginSimulator" name="task" value="loginSimulator"> 
+                                <label for="loginSimulator">Login Validation Simulator </label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="vowelCounter" name="task" value="vowelCounter"> 
+                                <label for="vowelCounter">Vowel Counter</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="numIdentifier" name="task" value="numIdentifier"> 
+                                <label for="numIdentifier"> Odd and Even Number Identifier</label>
+                            </div>
+
+                        </div>
+                        
+                    </form>
+
+                    <form class="tab_content" id="phase_2">
+                        
+                        <p>Functions & Logic Building</p>
+
+                        <div class="option_wrapper">
+
+                            <div class="radio_group">
+                                <input type="radio" id="calcFunctions" name="task" value="calcFunctions"> 
+                                <label for="calcFunctions">Reusable Calculator Functions </label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="minMaxNumbers" name="task" value="minMaxNumbers"> 
+                                <label for="minMaxNumbers">Find the maximum and minimum of 5 numbers </label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="factCalculators" name="task" value="factCalculators"> 
+                                <label for="factCalculators">Factorial Calculators </label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="revStringFunctions" name="task" value="revStringFunctions"> 
+                                <label for="revStringFunctions">Reverse a String Function</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="intCalculator" name="task" value="intCalculator"> 
+                                <label for="intCalculator">Interest Calculator</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="bmiCalculator" name="task" value="bmiCalculator"> 
+                                <label for="bmiCalculator">BMI Calcultor</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="leapYearChecker" name="task" value="leapYearChecker"> 
+                                <label for="leapYearChecker">Leap Year Checker</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="eliChecker" name="task" value="eliChecker"> 
+                                <label for="eliChecker">Simple Voting Age Eligibility Checker</label>
+                            </div>
+
+                        </div>
+                        
+                    </form>
+
+                    <form class="tab_content" id="phase_3">
+                        
+                        <p> Arrays & Iteration Mastery</p>
+
+                        <div class="option_wrapper">
+
+                            <div class="radio_group">
+                                <input type="radio" id="sumNumbers" name="task" value="sumNumbers"> 
+                                <label for="sumNumbers">Sum of Numbers in an Array</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="scoreCalculator" name="task" value="scoreCalculator"> 
+                                <label for="scoreCalculator">Average score Calculator</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="largeArray" name="task" value="largeArray"> 
+                                <label for="largeArray">Find Largest Number in an Array</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="dupArrays" name="task" value="dupArrays"> 
+                                <label for="dupArrays">Remove Duplicate from an Array</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="ascDescOrder" name="task" value="ascDescOrder"> 
+                                <label for="ascDescOrder">Sort a set of Number in Ascending or Descending Order</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="valueArrays" name="task" value="valueArrays"> 
+                                <label for="valueArrays">Count how many times a value appears in an array</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="evenNumbers" name="task" value="evenNumbers"> 
+                                <label for="evenNumbers">Filter even Numbers</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="twoArrays" name="task" value="twoArrays"> 
+                                <label for="twoArrays">Merge Two Arrays</label>
+                            </div>
+
+                        </div>
+                        
+                    </form>
+
+                    <form class="tab_content" id="phase_4">
+                        
+                        <p>Object & Data Structure</p>
+
+                        <div class="option_wrapper">
+
+                            <div class="radio_group">
+                                <input type="radio" id="ageGrade" name="task" value="ageGrade"> 
+                                <label for="ageGrade">Create a Student Object with Name, Age and Grade</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="keyObject" name="task" value="keyObject"> 
+                                <label for="keyObject">Check if a Key Exist in an Object</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="contactBook" name="task" value="contactBook"> 
+                                <label for="contactBook">Using an Object Literal, Create a Simple Contact Book</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="calTotalPrice" name="task" value="calTotalPrice"> 
+                                <label for="calTotalPrice">Create an Object that will also calculate the Total Price of it's own Keys</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="addRemoveItems" name="task" value="addRemoveItems"> 
+                                <label for="addRemoveItems">Shopping Cart Simulator with an Object Literal (Add and Remove Items)</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="jsonForamtting" name="task" value="jsonForamtting"> 
+                                <label for="jsonForamtting">Simple JSON Formatting</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="countObjectKeys" name="task" value="countObjectKeys"> 
+                                <label for="countObjectKeys">Count how many keys are in an object</label>
+                            </div>
+
+                        </div>
+                        
+                    </form>
+
+                    <form class="tab_content" id="phase_5">
+                        
+                        <p>Dom and The Browser</p>
+
+                        <div class="option_wrapper">
+
+                            <div class="radio_group">
+                                <input type="radio" id="clickCounter" name="task38" value="clickCounter"> 
+                                <label for="clickCounter">Button Click Counter</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="charCounter" name="task" value="charCounter"> 
+                                <label for="charCounter">Live Character Counter</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="toDoApp" name="task" value="toDoApp"> 
+                                <label for="toDoApp">Simple To Do App</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="modalPopUp" name="task" value="modalPopUp"> 
+                                <label for="modalPopUp">Modal Pop Up</label>
+                            </div>
+
+                            <div class="radio_group">
+                                <input type="radio" id="validateForm" name="task" value="validateForm"> 
+                                <label for="validateForm">Form Validation</label>
+                            </div>
+
+                        </div>
+                        
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="input_overlay" class="input_overlay">
+
+                <div class="input_container" id="task_input_content">
+
+                    <div class="input_header">
+                        <p>Input Data</p>
+
+                        <i class="close_btn" id="closeInputBtn">&times;</i>
+                    </div>
+
+                    <form class="input_form_body">
+                        <input type="text" id="inputContainer" placeholder="Enter your input here..." class="inputContainer">
+
+                        <button class="button btn-primary" id="submitBtn" type="submit">Submit</button>
+                    </form>
+
+                </div>
+
+        </div>
+
+        <div id="result_overlay" class="result_overlay">
+
+                <div class="result_container" id="task_result_content">
+
+                    <div class="input_header">
+                        <p>Response</p>
+
+                        <i class="close_btn" id="closeResultBtn">&times;</i>
+                    </div>
+
+                    <div class="result_body">
+                        <p id="result_text">This is where the result will be displayed.</p>
+                    </div>
+
+                </div>
+        </div>
+
+        <div id="counter_overlay" class="counter_overlay">
+
+                <div class="counter_container" id="task_counter_content">
+
+                    <div class="input_header">
+                        <p>Response</p>
+
+                        <i class="close_btn" id="closeCounterBtn">&times;</i>
+                    </div>
+
+                    <div class="result_body">
+
+                        <button class="button inactive-btn" id="counterDecrementBtn" type="button">
+                            -
+                        </button>
+
+                        <p id="counter_text">0</p>
+
+                        <button class="button" id="counterIncrementBtn" type="button">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+        </div>
+
+    </div>
+
+    <script src="index.js"></script>
+
+</body>
+</html>
