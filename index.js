@@ -3,7 +3,7 @@
 const tabLinks = document.querySelectorAll('.tablink')
 const tabContents = document.querySelectorAll('.tab_content')
 const taskRadios = document.querySelectorAll('input[name="task"]')
-const task38 =document.querySelector('input[name="task38"]')
+const task38Radios = document.querySelectorAll('input[name="task38"]')
 const inputModal = document.getElementById('input_overlay')
 const resultContainer = document.getElementById('result_container')
 const resultModal = document.getElementById('result_overlay')
@@ -20,8 +20,34 @@ const inputField = document.getElementById('inputContainer')
 const submitBtn = document.getElementById('submitBtn')
 const resultText = document.getElementById('result_text')
 
+// New modal elements for Phase 5
+const charCounterOverlay = document.getElementById('charCounter_overlay')
+const charCounterInput = document.getElementById('charCounterInput')
+const charCountDisplay = document.getElementById('charCount')
+const closeCharCounterBtn = document.getElementById('closeCharCounterBtn')
+
+const todoAppOverlay = document.getElementById('todoApp_overlay')
+const todoInput = document.getElementById('todoInput')
+const addTodoBtn = document.getElementById('addTodoBtn')
+const todoList = document.getElementById('todoList')
+const closeTodoBtn = document.getElementById('closeTodoBtn')
+
+const modalPopupOverlay = document.getElementById('modalPopup_overlay')
+const popupTitle = document.getElementById('popupTitle')
+const popupMessage = document.getElementById('popupMessage')
+const closePopupBtn = document.getElementById('closePopupBtn')
+
+const validateFormOverlay = document.getElementById('validateForm_overlay')
+const validateEmail = document.getElementById('validateEmail')
+const validatePassword = document.getElementById('validatePassword')
+const validatePhone = document.getElementById('validatePhone')
+const validateFormBtn = document.getElementById('validateFormBtn')
+const validationResult = document.getElementById('validationResult')
+const closeFormBtn = document.getElementById('closeFormBtn')
+
 // Initialize counter variable
 window.count = 0;
+window.todos = [];
 
 
 // Loop through each Tab
@@ -59,10 +85,10 @@ tabLinks.forEach((links) =>{
 // Reset Radio Buttons
 
 function resetRadios() {
-    taskRadios.forEach((radio) => {radio.checked = false;
-    task38.checked = false;
+    taskRadios.forEach((radio) => { radio.checked = false; });
+    task38Radios.forEach((radio) => { radio.checked = false; });
+
     
-    });
 }
 
 
@@ -91,12 +117,30 @@ taskRadios.forEach((radio) => {
 
 });
 
-// Task38 calling modal
-
-task38.addEventListener('change', () => {
-    if(task38.checked) {
-        counterModal.style.display =  'flex';
-    }
+// Phase 5 radios open their modals directly
+task38Radios.forEach((radio) => {
+    radio.addEventListener('change', () => {
+        if (!radio.checked) return;
+        switch (radio.value) {
+            case 'clickCounter':
+                tasks.clickCounter();
+                break;
+            case 'charCounter':
+                tasks.charCounter('');
+                break;
+            case 'toDoApp':
+                tasks.toDoApp();
+                break;
+            case 'modalPopUp':
+                tasks.modalPopUp('Notification', 'This is a popup message.');
+                break;
+            case 'validateForm':
+                tasks.validateForm();
+                break;
+            default:
+                break;
+        }
+    });
 });
 
 
@@ -598,6 +642,31 @@ const tasks = {
         }
     },
 
+    charCounter: (input) => {
+        charCounterInput.value = input;
+        charCounterOverlay.style.display = 'flex';
+        updateCharCount();
+    },
+
+    toDoApp: () => {
+        todoAppOverlay.style.display = 'flex';
+        todoList.innerHTML = '';
+        if (window.todos === undefined) {
+            window.todos = [];
+        }
+        renderTodos();
+    },
+
+    modalPopUp: (title, message) => {
+        popupTitle.textContent = title || 'Notification';
+        popupMessage.textContent = message || 'This is your notification message.';
+        modalPopupOverlay.style.display = 'flex';
+    },
+
+    validateForm: () => {
+        validateFormOverlay.style.display = 'flex';
+        validationResult.textContent = '';
+    },
 
 
 };
@@ -866,21 +935,16 @@ submitBtn.addEventListener('click', (e) => {
 
     } else if (selectedTask === 'countObjectKey') {
         result = tasks.countObjectKey(userInput);
-    
-
 
         // Phase 5 Tasks
+        // These tasks open their own modals when selected (radio change handlers)
     }
-
-
-
     inputModal.style.display = 'none';
     resultText.textContent = result;
     resultModal.style.display = 'flex';
     
 });
 
-// Increament and Decreament Logic
 
 incrementBtn.addEventListener('click', () => {
     window.count++;
@@ -890,6 +954,7 @@ incrementBtn.addEventListener('click', () => {
         decrementBtn.classList.remove('inactive-btn');
     }
 });
+
 
 decrementBtn.addEventListener('click', () => {
 
@@ -912,7 +977,7 @@ closeCounterBtn.addEventListener('click', () => {
     window.count = 0;
     counterText.textContent = `${window.count}`;
     decrementBtn.classList.add('inactive-btn');
-    task38.checked = false;
+    task38Radios.forEach(r => r.checked = false);
 });
 
 // Close result modal
@@ -922,5 +987,129 @@ closeResultBtn.addEventListener('click', () => {
     counterModal.style.display = 'none';
     resetRadios();
     inputField.value = '';
+});
+
+// CHARACTER COUNTER 
+function updateCharCount() {
+    const count = charCounterInput.value.length;
+    charCountDisplay.textContent = `Characters: ${count}`;
+}
+
+charCounterInput.addEventListener('input', updateCharCount);
+
+closeCharCounterBtn.addEventListener('click', () => {
+    charCounterOverlay.style.display = 'none';
+    charCounterInput.value = '';
+    charCountDisplay.textContent = 'Characters: 0';
+});
+
+// TODO APP 
+function renderTodos() {
+    todoList.innerHTML = '';
+    window.todos.forEach((todo, index) => {
+        const li = document.createElement('li');
+        li.style.cssText = 'display: flex; justify-content: space-between; align-items: center; padding: 10px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px;';
+        li.innerHTML = `
+            <span>${todo}</span>
+            <button class="button" data-index="${index}" style="padding: 5px 10px; font-size: 0.8rem;">Remove</button>
+        `;
+        todoList.appendChild(li);
+    });
+
+    // Add remove listeners
+    document.querySelectorAll('#todoList button').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const index = e.target.dataset.index;
+            window.todos.splice(index, 1);
+            renderTodos();
+        });
+    });
+}
+
+addTodoBtn.addEventListener('click', () => {
+    const task = todoInput.value.trim();
+    if (task !== '') {
+        window.todos.push(task);
+        todoInput.value = '';
+        renderTodos();
+    }
+});
+
+todoInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        addTodoBtn.click();
+    }
+});
+
+closeTodoBtn.addEventListener('click', () => {
+    todoAppOverlay.style.display = 'none';
+    todoInput.value = '';
+});
+
+//  MODAL POPUP 
+closePopupBtn.addEventListener('click', () => {
+    modalPopupOverlay.style.display = 'none';
+});
+
+//  FORM VALIDATION 
+validateFormBtn.addEventListener('click', () => {
+    const email = validateEmail.value.trim();
+    const password = validatePassword.value.trim();
+    const phone = validatePhone.value.trim();
+
+    let errors = [];
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+        errors.push('Email is required.');
+    } else if (!emailRegex.test(email)) {
+        errors.push('Email format is invalid.');
+    }
+
+    // Password validation
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasLowerCase = /[a-z]/.test(password);
+    const hasDigit = /\d/.test(password);
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+    if (!password) {
+        errors.push('Password is required.');
+    } else if (password.length < 8) {
+        errors.push('Password must be at least 8 characters.');
+    } else if (!hasUpperCase) {
+        errors.push('Password must contain an uppercase letter.');
+    } else if (!hasLowerCase) {
+        errors.push('Password must contain a lowercase letter.');
+    } else if (!hasDigit) {
+        errors.push('Password must contain a digit.');
+    } else if (!hasSpecialChar) {
+        errors.push('Password must contain a special character.');
+    }
+
+    // Phone validation
+    const phoneRegex = /^\d{10,}$/;
+    if (!phone) {
+        errors.push('Phone is required.');
+    } else if (!phoneRegex.test(phone.replace(/\D/g, ''))) {
+        errors.push('Phone must be at least 10 digits.');
+    }
+
+    // Display results
+    if (errors.length === 0) {
+        validationResult.style.color = 'green';
+        validationResult.textContent = '✓ All fields are valid!';
+    } else {
+        validationResult.style.color = 'red';
+        validationResult.textContent = errors.join(' | ');
+    }
+});
+
+closeFormBtn.addEventListener('click', () => {
+    validateFormOverlay.style.display = 'none';
+    validateEmail.value = '';
+    validatePassword.value = '';
+    validatePhone.value = '';
+    validationResult.textContent = '';
 });
 

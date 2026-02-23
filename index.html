@@ -265,22 +265,22 @@
                             </div>
 
                             <div class="radio_group">
-                                <input type="radio" id="charCounter" name="task" value="charCounter"> 
+                                <input type="radio" id="charCounter" name="task38" value="charCounter"> 
                                 <label for="charCounter">Live Character Counter</label>
                             </div>
 
                             <div class="radio_group">
-                                <input type="radio" id="toDoApp" name="task" value="toDoApp"> 
+                                <input type="radio" id="toDoApp" name="task38" value="toDoApp"> 
                                 <label for="toDoApp">Simple To Do App</label>
                             </div>
 
                             <div class="radio_group">
-                                <input type="radio" id="modalPopUp" name="task" value="modalPopUp"> 
+                                <input type="radio" id="modalPopUp" name="task38" value="modalPopUp"> 
                                 <label for="modalPopUp">Modal Pop Up</label>
                             </div>
 
                             <div class="radio_group">
-                                <input type="radio" id="validateForm" name="task" value="validateForm"> 
+                                <input type="radio" id="validateForm" name="task38" value="validateForm"> 
                                 <label for="validateForm">Form Validation</label>
                             </div>
 
@@ -353,6 +353,92 @@
                             +
                         </button>
 
+                    </div>
+
+                </div>
+        </div>
+
+        <div id="charCounter_overlay" class="counter_overlay">
+
+                <div class="counter_container" id="charCounter_content">
+
+                    <div class="input_header">
+                        <p>Character Counter</p>
+
+                        <i class="close_btn" id="closeCharCounterBtn">&times;</i>
+                    </div>
+
+                    <div class="result_body" style="flex-direction: column; gap: 1rem;">
+                        <textarea id="charCounterInput" placeholder="Type something..." style="width: 100%; height: 150px; padding: 10px; border-radius: 8px; border: 1px solid #ccc;"></textarea>
+                        <p id="charCount" style="margin: 0;">Characters: 0</p>
+                    </div>
+
+                </div>
+        </div>
+
+        <div id="todoApp_overlay" class="counter_overlay">
+
+                <div class="counter_container" id="todoApp_content" style="width: 50rem; height: auto;">
+
+                    <div class="input_header">
+                        <p>Todo App</p>
+
+                        <i class="close_btn" id="closeTodoBtn">&times;</i>
+                    </div>
+
+                    <div class="result_body" style="flex-direction: column; gap: 1rem; align-items: stretch;">
+                        <div style="display: flex; gap: 0.5rem;">
+                            <input type="text" id="todoInput" placeholder="Add a new task..." style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+                            <button class="button btn-primary" id="addTodoBtn" type="button">Add</button>
+                        </div>
+                        <ul id="todoList" style="list-style: none; padding: 0; max-height: 300px; overflow-y: auto;"></ul>
+                    </div>
+
+                </div>
+        </div>
+
+        <div id="modalPopup_overlay" class="counter_overlay">
+
+                <div class="counter_container" id="modalPopup_content">
+
+                    <div class="input_header">
+                        <p id="popupTitle">Notification</p>
+
+                        <i class="close_btn" id="closePopupBtn">&times;</i>
+                    </div>
+
+                    <div class="result_body">
+                        <p id="popupMessage" style="text-align: center;">This is your notification message.</p>
+                    </div>
+
+                </div>
+        </div>
+
+        <div id="validateForm_overlay" class="counter_overlay">
+
+                <div class="counter_container" id="validateForm_content" style="width: 50rem; height: auto;">
+
+                    <div class="input_header">
+                        <p>Form Validation</p>
+
+                        <i class="close_btn" id="closeFormBtn">&times;</i>
+                    </div>
+
+                    <div class="result_body" style="flex-direction: column; gap: 1rem; align-items: stretch;">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem;">Email:</label>
+                            <input type="email" id="validateEmail" placeholder="Enter email..." style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box;">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem;">Password:</label>
+                            <input type="password" id="validatePassword" placeholder="Enter password..." style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box;">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem;">Phone:</label>
+                            <input type="text" id="validatePhone" placeholder="Enter phone..." style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box;">
+                        </div>
+                        <button class="button btn-primary" id="validateFormBtn" type="button">Validate</button>
+                        <p id="validationResult"></p>
                     </div>
 
                 </div>
